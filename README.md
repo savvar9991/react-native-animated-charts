@@ -17,8 +17,8 @@ It's a part of the [Rainbow.me project](https://rainbow.me/).
 
 ## Installation
 
-1. Install [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/docs/next/fundamentals/installation) in the newest version. 
-2. 
+Install [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/docs/next/fundamentals/installation) in the newest version. 
+
 ```bash
 yarn add @rainbow-me/animated-charts
 ```
@@ -90,7 +90,7 @@ The code above generates the chart below:
 ### Linear charts
 
 ### `ChartPathProvider`
-The whole chart's structure has to be wrapped with `ChartProvider`. It's responsible for data managing and itself does not have a visual impact on the layout. Under the hood, it uses context API to simplify manipulation with other components. The rule is to use one data series for each wrapper.
+The whole chart's structure has to be wrapped with `ChartPathProvider`. It's responsible for data managing and itself does not have a visual impact on the layout. Under the hood, it uses context API to simplify manipulation with other components. The rule is to use one data series for each wrapper.
 It's important to have it as a separated component because under this component it's possible `useChartData` hook and put `ChartDot` component. However, if you don't need those features, you can pass `data` directly to `ChartPath` and drop this wrapper. 
 
 | Prop name       | type       | default / obligatory   | description |
@@ -113,8 +113,8 @@ This component is used for showing the path itself.
 | Prop name                            | type       | default / obligatory   | description |
 |--------------------------------------|------------|------------------------|-------------|
 | `smoothingWhileTransitioningEnabled` | `number`   | `false`                | Although smoothing is not complex computing, it might impact performance in some low-end devices so while having a big set of data it might be worth disable smoothing while transitioning.   |
-| `height`                             | `number`   | obligatory             | Height od the SVG canvas    |
-| `width`                              | `number`   | obligatory             | Width od the SVG canvas    |
+| `height`                             | `number`   | obligatory             | Height of the SVG canvas    |
+| `width`                              | `number`   | obligatory             | Width of the SVG canvas    |
 | `strokeWidth`                        | `number`   | `1`                    | Width of the path.  |
 | `selectedStrokeWidth`                | `number`   | `1`                    | Width of the path selected.  |
 | `gestureEnabled`                     | `boolean`  | `true`                 | Defines if interaction with the chart should be allowed or not  |
@@ -122,9 +122,9 @@ This component is used for showing the path itself.
 | `selectedOpacity`                    | `number`   | `0.7`                  | Target opacity of the path while touching the chart.
 | `hitSlop`                         | `number`   | `0`                    |  While scrubbing the chart touching edges of the screen you may want make points on the edges more accessible. With `hitSlop` it's possible to access points on edges doubling the speed of scrubbing beyond this margin.  |
 | `hapticsEnabled`                      | `boolean`  | `false`                |  On pressing in/out on the chart it might be expected to make haptic feedback. It will happen with `hapticsEnabled` set to `true`.  |
-| `springConfig`                       | object     | `{damping: 15, mass: 1, stiffness: 600}`  | Object [defining the spring animation](https://docs.swmansion.com/react-native-reanimated/docs/next/animations). This spring is used for a dot's scale.
-| `timingFeedbackConfig`               | object     | `{duration: 80}`       | Object [defining the timing animation](https://docs.swmansion.com/react-native-reanimated/docs/next/animations). `timingFeedbackConfig` is used for a path's opacity and width.
-| `timingAnimationConfig`              | object     | `{duration: 300}`      | Object [defining the timing animation](https://docs.swmansion.com/react-native-reanimated/docs/next/animations). `timingAnimationConfig` is used for the transition between chart's data.
+| `springConfig`                       | object     | `{damping: 15, mass: 1, stiffness: 600}`  | Object [defining the spring animation](https://docs.swmansion.com/react-native-reanimated/docs/animations/withSpring). This spring is used for a dot's scale.
+| `timingFeedbackConfig`               | object     | `{duration: 80}`       | Object [defining the timing animation](https://docs.swmansion.com/react-native-reanimated/docs/animations/withTiming). `timingFeedbackConfig` is used for a path's opacity and width.
+| `timingAnimationConfig`              | object     | `{duration: 300}`      | Object [defining the timing animation](https://docs.swmansion.com/react-native-reanimated/docs/animations/withTiming). `timingAnimationConfig` is used for the transition between chart's data.
 | ...rest                              | `object`   | `{}`                   | Props applied to SVG [Path](https://github.com/react-native-community/react-native-svg#path). |
 
 
@@ -192,7 +192,7 @@ E.g.
        `o--------------Min------------o---------o---------o---------o`
 
 ### `bSplineInterpolation({ degree = 3, ...params })`
-`bSplineInterpolation` is inspired by [victorian lib](https://github.com/networkcube/vistorian/blob/17e2be9b51267509ea67b5984421d8c03558d928/core/lib/BSpline.js)
+`bSplineInterpolation` is inspired by [vistorian lib](https://github.com/networkcube/vistorian/blob/17e2be9b51267509ea67b5984421d8c03558d928/core/lib/BSpline.js)
 and uses [B-spline](https://en.wikipedia.org/wiki/B-spline) interpolation of a given `degree`.
 
 ### `monotoneCubicInterpolation({ ...params })`
@@ -238,4 +238,4 @@ There're a few things left to make it polished regarding linear charts:
 
 ## License
 
-Reanimated library is licensed under [The MIT License](LICENSE). 
+React Native Animated Charts is licensed under [The MIT License](LICENSE). 
